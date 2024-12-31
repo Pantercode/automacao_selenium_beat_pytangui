@@ -9,11 +9,15 @@ service = Service(ChromeDriverManager().install())
 # Abre o Chrome e acessa a página
 driver = webdriver.Chrome(service=service)
 # Abre o Chrome na pagina da documentacao
-driver.get('https://www.selenium.dev/documentation/')
+driver.get("https://www.selenium.dev/web/web-form.html")
 # seleciona a caixa de texto
 text_box = driver.find_element(by=By.NAME,value='my-text')
 # Escreve dentro do box selenium
 text_box.send_keys('Selenium')
 submit_button = driver.find_element(by=By.CSS_SELECTOR,value='button')
 submit_button.click()
+message = driver.find_element(by=By.ID,value='message')
+print('Mensagem final',message.text)
+driver.quit()
+
 sleep(30)
